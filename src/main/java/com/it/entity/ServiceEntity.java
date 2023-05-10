@@ -21,8 +21,8 @@ public class ServiceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Integer seviceId;
-	private String seviceName;
-	private String seviceStatus;
+	private Integer serviceId;
+	private String serviceName;
+	private String serviceStatus;
 
 }
