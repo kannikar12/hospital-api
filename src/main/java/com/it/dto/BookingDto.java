@@ -1,6 +1,5 @@
 package com.it.dto;
  
-import javax.persistence.JoinColumn;
 
 import lombok.Data;
 
