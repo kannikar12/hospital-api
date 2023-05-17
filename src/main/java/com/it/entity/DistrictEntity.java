@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,4 +29,7 @@ public class DistrictEntity implements Serializable {
 	private String disNameEn;
 	private String pvnId;
 
+	@ManyToOne
+	@JoinColumn(name = "pvnId", nullable = true, insertable = false, updatable = false)
+	private ProvinceEntity province;
 }

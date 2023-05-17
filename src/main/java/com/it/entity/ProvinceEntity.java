@@ -22,6 +22,7 @@ public class ProvinceEntity implements Serializable {
 	
 	@Id
 	private Integer pvnId;
+	private String pvnCode;
 	private String pvnNameTh;
 	private String pvnNameEng;
 	private String pvnArea;

@@ -1,5 +1,10 @@
 package com.it.dto;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.it.entity.RoleEntity;
+
 import lombok.Data;
 
 @Data
@@ -19,6 +24,11 @@ public class CustomersDto {
 	private String custStatus;
 	private String custBirthDate;
 	private String sdtId;
-	private String roleId;
-
+	private String sdtZipCode;
+	private Integer roleId;
+	
+	@ManyToOne
+	@JoinColumn(name = "roleId", nullable = true, insertable = false, updatable = false)
+	private RoleEntity role;
+	
 }
