@@ -44,4 +44,8 @@ public class CustomersEntity implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "roleId", nullable = true, insertable = false, updatable = false)
 	private RoleEntity role;
-}
+
+	}
+
+
+	

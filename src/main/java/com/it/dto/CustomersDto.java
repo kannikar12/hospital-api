@@ -3,6 +3,7 @@ package com.it.dto;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.it.entity.CustomersEntity;
 import com.it.entity.RoleEntity;
 
 import lombok.Data;
@@ -30,5 +31,15 @@ public class CustomersDto {
 	@ManyToOne
 	@JoinColumn(name = "roleId", nullable = true, insertable = false, updatable = false)
 	private RoleEntity role;
+
+	public boolean isPresent() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public CustomersEntity get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

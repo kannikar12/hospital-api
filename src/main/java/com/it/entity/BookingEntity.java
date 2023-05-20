@@ -26,12 +26,19 @@ public class BookingEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer bookId;
-	private String bookDate;
-	private String bookPre;
-	private String bookStatus;
 	private Integer custId;
+	private Integer serviceId;
+	private String bookDate;
+	private String bookStatus;
+	private Integer bookSumTime;
+	private String bookTime;
+	private String bookEtime;
 	
 	@ManyToOne
 	@JoinColumn(name = "custId", nullable = true, insertable = false, updatable = false)
 	private CustomersEntity customers;
+	
+	@ManyToOne
+	@JoinColumn(name = "serviceId", nullable = true, insertable = false, updatable = false)
+	private CustomersEntity service;
 }

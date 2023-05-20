@@ -24,7 +24,7 @@ public class SuddistrictEntity implements Serializable {
 
 	@Id
 	private Integer sdtId;
-	private String sdtZipCode;
+	private String zipCode;
 	private String sdtNameTh;
 	private String sdtNameEng;
 	private Integer disId;
@@ -32,4 +32,8 @@ public class SuddistrictEntity implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "disId", nullable = true, insertable = false, updatable = false)
 	private DistrictEntity district;
-}
+
+	
+
+	}
+

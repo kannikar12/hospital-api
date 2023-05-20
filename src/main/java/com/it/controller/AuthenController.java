@@ -23,7 +23,7 @@ public class AuthenController {
 	
 	@PostMapping("/login")
 	public  ResponseEntity<CustomersEntity> usernameByLoginPassword(@RequestBody AuthenDto request){
-		 CustomersEntity entity = customersRepository.findByCustUsername(request.getUsername());
+		 CustomersEntity entity = customersRepository.findBycustUsername(request.getUsername());
 		 if (ObjectUtils.isNotEmpty(entity) && PasswordEncryptorUtils.checkPassword(request.getPassword(),entity.getCustPassword())) {
 			 return ResponseEntity.ok(entity);
 		 }else {

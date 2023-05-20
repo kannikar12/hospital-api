@@ -1,7 +1,6 @@
 package com.it.dto;
 
 
-
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -20,4 +19,5 @@ public class DistrictDto {
 	@ManyToOne
 	@JoinColumn(name = "pvnId", nullable = true, insertable = false, updatable = false)
 	private ProvinceEntity province;
+
 }

@@ -12,11 +12,18 @@ import lombok.Data;
 public class BookingDto {
 	private Integer bookId;
 	private String bookDate;
-	private String bookPre;
+	private Integer serviceId;
 	private String bookStatus;
 	private Integer custId;
+	private Integer bookSumTime;
+	private String bookTime;
+	private String bookEtime;
 	
 	@ManyToOne
 	@JoinColumn(name = "custId", nullable = true, insertable = false, updatable = false)
 	private CustomersEntity customers;
+	
+	@ManyToOne
+	@JoinColumn(name = "serviceId", nullable = true, insertable = false, updatable = false)
+	private CustomersEntity service;
 }

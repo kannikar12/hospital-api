@@ -14,7 +14,8 @@ import com.it.dto.ProvinceDto;
 import com.it.service.ProvinceService;
 
 @RestController
-public class ProvinceController {
+public class ProvinceController
+{
 
 	@Autowired
 	private ProvinceService provinceService;
@@ -45,4 +46,4 @@ public class ProvinceController {
 		return ResponseEntity.ok(provinceService.deleteProvinceByPvnId(pvnId));
 	}
 
-}// end
+}
