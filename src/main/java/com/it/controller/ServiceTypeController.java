@@ -19,7 +19,7 @@ public class ServiceTypeController {
 	@Autowired
 	public ServiceTypeService serviceTypeService;
 	
-	@GetMapping
+	@GetMapping("/service")
 	public ResponseEntity<Object> getAllService() {
 		return ResponseEntity.ok(serviceTypeService.findAllService());
      }
@@ -31,7 +31,7 @@ public class ServiceTypeController {
 	public ResponseEntity<Object> saverEntity(@RequestBody ServiceTypeDto serviceTypeDto) {
 		return ResponseEntity.ok(serviceTypeService.saveService(serviceTypeDto));
 	}
-	@PutMapping("/role/update/{serviceId}")
+	@PutMapping("/service/update/{serviceId}")
 	public ResponseEntity<Boolean> updateService(@PathVariable(name = "serviceId") Integer serviceId,
 			@RequestBody ServiceTypeDto serviceTypeDto) {
 		return ResponseEntity.ok(serviceTypeService.updateService(serviceId, serviceTypeDto));

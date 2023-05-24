@@ -10,4 +10,6 @@ public interface ServiceDetailRepository  extends JpaRepository<ServiceDetailEnt
 
 	List<ServiceDetailEntity> findByServiceId(Integer serviceId);
 
+	void save(ServiceDetailRepository entity);
+
 }

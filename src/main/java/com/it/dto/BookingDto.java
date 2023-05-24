@@ -26,4 +26,9 @@ public class BookingDto {
 	@ManyToOne
 	@JoinColumn(name = "serviceId", nullable = true, insertable = false, updatable = false)
 	private CustomersEntity service;
+
+	public void setCust(CustomersDto map) {
+		// TODO Auto-generated method stub
+		
+	}
 }

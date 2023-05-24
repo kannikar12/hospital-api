@@ -20,11 +20,13 @@ import com.it.service.CustomersService;
 @RestController
 @RequestMapping("/v1/custId")
 public class CustomersController {
+
 	@Autowired
 	private ModelMapper modelMapper;
 
 	@Autowired
 	private CustomersService customersServices;
+
 	private CustomersDto convertToResponse(CustomersEntity entity) {
 		CustomersDto response = modelMapper.map(entity, CustomersDto.class);
 		return response;
@@ -34,8 +36,9 @@ public class CustomersController {
 	public ResponseEntity<Object> getAllCustomers() {
 		return ResponseEntity.ok(customersServices.findAllCustomers());
 	}
+
 	@GetMapping("/custId")
-	public ResponseEntity<CustomersDto> getCustomersBycudtId(@RequestParam("custId") Integer custId){
+	public ResponseEntity<CustomersDto> getCustomersBycudtId(@RequestParam("custId") Integer custId) {
 		CustomersDto entity = customersServices.findCustomersByCustId(custId);
 		if (entity.isPresent()) {
 			return ResponseEntity.ok(this.convertToResponse(entity.get()));
@@ -43,6 +46,7 @@ public class CustomersController {
 			return ResponseEntity.badRequest().body(null);
 		}
 	}
+
 	@GetMapping("/customers/{custId}")
 	public ResponseEntity<Object> getBillorderByBillId(@PathVariable(name = "custId") Integer custId) {
 		return ResponseEntity.ok(customersServices.findCustomersByCustId(custId));
@@ -56,7 +60,7 @@ public class CustomersController {
 	@PutMapping("/customers/update/{custId}")
 	public ResponseEntity<Object> updateCustomers(@PathVariable(name = "custId") Integer custId,
 			@RequestBody CustomersDto customersDto) {
-		return ResponseEntity.ok(customersServices.updateCustomers(custId,customersDto));
+		return ResponseEntity.ok(customersServices.updateCustomers(custId, customersDto));
 	}
 
 	@DeleteMapping("/customers/{custId}")
@@ -64,4 +68,3 @@ public class CustomersController {
 		return ResponseEntity.ok(customersServices.deleteCustomersBycustId(custId));
 	}
 }
-

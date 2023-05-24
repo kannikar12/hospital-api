@@ -14,7 +14,7 @@ import com.it.dto.DistrictDto;
 import com.it.service.DistrictService;
 
 @RestController
-public class  DistrictController {
+public class DistrictController {
 
 	@Autowired
 	private DistrictService districtService;
@@ -24,7 +24,7 @@ public class  DistrictController {
 		return ResponseEntity.ok(districtService.findAllDistrict());
 	}
 
-	@GetMapping("/ district/{custId}")
+	@GetMapping("/ district/{disId}")
 	public ResponseEntity<Object> getBillorderByBillId(@PathVariable(name = "disId") Integer disId) {
 		return ResponseEntity.ok(districtService.findDistrictByDisId(disId));
 	}
@@ -37,13 +37,12 @@ public class  DistrictController {
 	@PutMapping("/ district/update/{disId}")
 	public ResponseEntity<Object> updateDistrict(@PathVariable(name = "disId") Integer disId,
 			@RequestBody DistrictDto districtDto) {
-		return ResponseEntity.ok(districtService.updateDistrict(disId,districtDto));
+		return ResponseEntity.ok(districtService.updateDistrict(disId, districtDto));
 	}
 
 	@DeleteMapping("/ district/{disId}")
-	public ResponseEntity<Object> deleteDistrictByDisId(@PathVariable(name = "disId") Integer disId) {
+	public ResponseEntity<Object> deleteDistrictsByPvnId(@PathVariable(name = "disId") Integer disId) {
 		return ResponseEntity.ok(districtService.deleteDistrictByDisId(disId));
 	}
+
 }
-
-

@@ -17,16 +17,15 @@ public class RoleService {
 
 	@Autowired
 	private ModelMapper modelMapper;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	public List<RoleDto> findAllRole() {
 		List<RoleEntity> roleEntities = roleRepository.findAll();
 		return modelMapper.map(roleEntities, new TypeToken<List<RoleDto>>() {
 		}.getType());
 	}
-
 
 	public RoleDto findroleByRoleId(Integer roleId) {
 		Optional<RoleEntity> rOptional = roleRepository.findById(roleId);
@@ -36,14 +35,14 @@ public class RoleService {
 			dto.setRoleName(rOptional.get().getRoleName());
 			dto.setRoleDes(rOptional.get().getRoleDes());
 			dto.setRoleStatus(rOptional.get().getRoleStatus());
-			
+
 			return dto;
 		}
 
 		return null;
 	}
-	
-	public boolean saveRole( RoleDto roleDto) {
+
+	public boolean saveRole(RoleDto roleDto) {
 		boolean saveFig = false;
 		try {
 			RoleEntity entity = modelMapper.map(roleDto, RoleEntity.class);
@@ -61,7 +60,7 @@ public class RoleService {
 			//
 			Optional<RoleEntity> roleOptional = roleRepository.findById(roleId);
 			if (roleOptional.isPresent()) {
-				RoleEntity entity = modelMapper.map(roleRepository,RoleEntity.class);
+				RoleEntity entity = modelMapper.map(roleRepository, RoleEntity.class);
 				roleRepository.save(entity);
 				updateFig = true;
 			}
@@ -70,7 +69,6 @@ public class RoleService {
 		}
 		return updateFig;
 	}
-
 
 	public boolean deleteRoleByroleId(Integer roleId) {
 		boolean deleteFig = false;
@@ -83,7 +81,4 @@ public class RoleService {
 		return deleteFig;
 	}
 
-
-	}
-	
-
+}

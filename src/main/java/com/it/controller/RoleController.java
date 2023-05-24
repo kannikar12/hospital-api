@@ -15,22 +15,25 @@ import com.it.service.RoleService;
 
 @RestController
 public class RoleController {
-	
+
 	@Autowired
 	public RoleService roleService;
-	
+
 	@GetMapping("/role")
-	public ResponseEntity<Object>getAllRole() {
+	public ResponseEntity<Object> getAllRole() {
 		return ResponseEntity.ok(roleService.findAllRole());
 	}
+
 	@GetMapping("/role/{roleId}")
 	public ResponseEntity<Object> getBillorderByBillId(@PathVariable(name = "roleId") Integer roleId) {
 		return ResponseEntity.ok(roleService.findroleByRoleId(roleId));
 	}
+
 	@PostMapping("/role/save")
 	public ResponseEntity<Object> saverEntity(@RequestBody RoleDto roleDto) {
 		return ResponseEntity.ok(roleService.saveRole(roleDto));
 	}
+
 	@PutMapping("/role/update/{roleId}")
 	public ResponseEntity<Object> updateRole(@PathVariable(name = "roleId") Integer roleId,
 			@RequestBody RoleDto roleDto) {
@@ -42,7 +45,4 @@ public class RoleController {
 		return ResponseEntity.ok(roleService.deleteRoleByroleId(roleId));
 	}
 
-	
 }
-
-

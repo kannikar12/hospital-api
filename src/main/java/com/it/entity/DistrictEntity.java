@@ -33,8 +33,4 @@ public class DistrictEntity implements Serializable {
 	@JoinColumn(name = "pvnId", nullable = true, insertable = false, updatable = false)
 	private ProvinceEntity province;
 
-	public Object setDistrict(DistrictEntity suddistrictDto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

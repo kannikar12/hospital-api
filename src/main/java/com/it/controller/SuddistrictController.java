@@ -28,17 +28,17 @@ import com.it.repository.SuddistrictRepository;
 import com.it.service.SuddistrictService;
 
 @RestController
-public class SuddistrictController{
+public class SuddistrictController {
 
 	@Autowired
 	private ModelMapper modelMapper;
-	
+
 	@Autowired
 	private SuddistrictRepository suddistrictRepository;
-	
+
 	@Autowired
 	private DistrictRepository districtRepository;
-	
+
 	@Autowired
 	private SuddistrictService suddistrictService;
 
@@ -56,7 +56,7 @@ public class SuddistrictController{
 		return response;
 
 	}
-	
+
 	@GetMapping("/subdistrict/by_zip_code")
 	public ResponseEntity<SuddistrictDto> getSubdistrictByZipCode(@RequestParam("zipCode") String zipCode) {
 		List<SuddistrictEntity> entities = suddistrictRepository.findAll();
@@ -83,11 +83,7 @@ public class SuddistrictController{
 		}
 		return ResponseEntity.ok(response);
 	}
-	
-	
-	
-	
-	
+
 	@GetMapping("/suddistrict")
 	public ResponseEntity<Object> getAllSuddistrict() {
 		return ResponseEntity.ok(suddistrictService.findAllSuddistrict());
@@ -106,7 +102,7 @@ public class SuddistrictController{
 	@PutMapping("/suddistrict/update/{sdtId}")
 	public ResponseEntity<Object> updateSuddistrict(@PathVariable(name = "sdtId") Integer sdtId,
 			@RequestBody SuddistrictDto suddistrictDto) {
-		return ResponseEntity.ok(suddistrictService.updateSuddistrict (sdtId,suddistrictDto));
+		return ResponseEntity.ok(suddistrictService.updateSuddistrict(sdtId, suddistrictDto));
 	}
 
 	@DeleteMapping("/suddistrict/{sdtId}")
